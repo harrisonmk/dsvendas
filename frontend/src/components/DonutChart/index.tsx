@@ -1,8 +1,8 @@
-import React from "react";
-import Chart from 'react-apexcharts';
-import {BASE_URL} from "../../utils/requests";
-import axios from "axios";
-import {SaleSum} from "../../types/sale";
+import React, {useEffect, useState} from "react";
+import axios from 'axios';
+import Chart from 'react-apexcharts'
+import {SaleSum} from 'types/sale';
+import {BASE_URL} from 'utils/requests';
 
 
 type ChartData = {
@@ -12,25 +12,21 @@ type ChartData = {
 
 }
 
-const DonutChart = () => {
+function DonutChart() {
 
-    //Forma Errada
-    let chartData : ChartData = {labels: [],series : []};
+    const [chartData, setCharData] = useState<ChartData>({labels: [], series: []});
 
-    //Forma Errada
-    axios.get(`${BASE_URL}/sales/amount-by-seller`).then(response => {
-        const data = response.data as SaleSum[];
-        const myLabels = data.map(x => x.sellerName );
-        const mySeries = data.map(x => x.sum);
+    useEffect(() => {
+        axios.get(`${BASE_URL}/sales/amount-by-seller`)
+            .then((response) => {
+                const data = response.data as SaleSum[];
+                const myLabels = data.map(x => x.sellerName);
+                const mySeries = data.map(x => x.sum);
 
-        chartData = {labels: myLabels,series : mySeries};
-        console.log(chartData);
-    });
+                setCharData({labels: myLabels, series: mySeries});
+            })
+    }, []);
 
-   /* const mockData = {
-        series: [477138, 499928, 444867, 220426, 473088],
-        labels: ['Anakin', 'Barry Allen', 'Kal-El', 'Logan', 'Padmé']
-    } */
 
     const options = {
         legend: {
@@ -38,15 +34,15 @@ const DonutChart = () => {
         }
     }
 
+
     return (
         <Chart
-            options={{...options,labels: chartData.labels}}
+            options={{...options, labels: chartData.labels}}
             series={chartData.series}
             type="donut"
             height="240"
-        />
-    )
-        ;
+        /> //Adiciona ao options os labels da outra constant (no caso mockData)
+    );
 }
 
 export default DonutChart;
