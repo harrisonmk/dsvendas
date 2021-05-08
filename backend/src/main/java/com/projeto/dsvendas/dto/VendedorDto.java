@@ -2,12 +2,15 @@ package com.projeto.dsvendas.dto;
 
 import com.projeto.dsvendas.modelo.Vendedor;
 import java.io.Serializable;
+import javax.persistence.Column;
 
 public class VendedorDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private Long id;
+    
+    @Column(name = "name")
     private String nome;
 
     
