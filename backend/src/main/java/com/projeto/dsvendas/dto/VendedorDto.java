@@ -1,8 +1,8 @@
 package com.projeto.dsvendas.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.projeto.dsvendas.modelo.Vendedor;
 import java.io.Serializable;
-import javax.persistence.Column;
 
 public class VendedorDto implements Serializable {
 
@@ -10,7 +10,7 @@ public class VendedorDto implements Serializable {
 
     private Long id;
     
-    @Column(name = "name")
+    @JsonProperty("name")
     private String nome;
 
     

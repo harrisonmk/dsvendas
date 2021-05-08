@@ -1,19 +1,19 @@
 
 package com.projeto.dsvendas.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.projeto.dsvendas.modelo.Vendedor;
-import javax.persistence.Column;
 
 
 public class VendaSucedidaDto {
     
-    @Column(name = "sellerName")
+    @JsonProperty("sellerName")
     private String nomeVendedor;
     
-    @Column(name = "visited")
+    @JsonProperty("visited")
     private Long visitado;
     
-     @Column(name = "deals")
+    @JsonProperty("deals")
     private Long negocioFechado;
      
      

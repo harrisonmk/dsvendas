@@ -1,17 +1,17 @@
 package com.projeto.dsvendas.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.projeto.dsvendas.modelo.Vendedor;
 import java.io.Serializable;
-import javax.persistence.Column;
 
 public class SomaVendaDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
-    @Column(name = "sellerName")
+    @JsonProperty("sellerName")
     private String nomeVendedor;
 
-    @Column(name = "sum")
+    @JsonProperty("sum")
     private Double soma;
     
     
