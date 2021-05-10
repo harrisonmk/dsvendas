@@ -10,6 +10,6 @@ export type SaleSuccess = {
 
     sellerName: string;
     visited: number;
-    dealds:number;
+    deals:number;
 
 }
