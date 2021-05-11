@@ -20,8 +20,8 @@ public class VendaDto implements Serializable {
     @JsonProperty("amount")
     private Double quantidadeVendida;
 
-    @JsonProperty("date")
-    private LocalDate data;
+    //@JsonProperty("date")
+    private LocalDate date;
 
     @JsonProperty("seller")
     private VendedorDto vendedor;
@@ -33,7 +33,7 @@ public class VendaDto implements Serializable {
         this.quantidadeVisita = venda.getQuantidadeVisitas();
         this.negocioFechado = venda.getNegociosFechado();
         this.quantidadeVendida = venda.getQuantidadeVendida();
-        this.data = venda.getData();
+        this.date = venda.getData();
         this.vendedor = new VendedorDto(venda.getVendedor());
     }
 
@@ -42,7 +42,7 @@ public class VendaDto implements Serializable {
         this.quantidadeVisita = quantidadeVisita;
         this.negocioFechado = negocioFechado;
         this.quantidadeVendida = quantidadeVendida;
-        this.data = data;
+        this.date = data;
         this.vendedor = vendedor;
     }
 
@@ -84,11 +84,11 @@ public class VendaDto implements Serializable {
     }
 
     public LocalDate getData() {
-        return data;
+        return date;
     }
 
     public void setData(LocalDate data) {
-        this.data = data;
+        this.date = data;
     }
 
     public VendedorDto getVendedor() {

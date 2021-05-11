@@ -30,8 +30,8 @@ public class Venda implements Serializable {
     @Column(name = "amount")
     private Double quantidadeVendida;
 
-    @Column(name = "date")
-    private LocalDate data;
+    //@Column(name = "date")
+    private LocalDate date;
 
     @ManyToOne  //muitas vendas para um vendedor
     @JoinColumn(name = "seller_id")
@@ -44,7 +44,7 @@ public class Venda implements Serializable {
         this.quantidadeVisita = quantidadeVisita;
         this.negocioFechado = negocioFechado;
         this.quantidadeVendida = quantidadeVendida;
-        this.data = data;
+        this.date = data;
         this.vendedor = vendedor;
     }
     
@@ -88,11 +88,11 @@ public class Venda implements Serializable {
     }
 
     public LocalDate getData() {
-        return data;
+        return date;
     }
 
     public void setData(LocalDate data) {
-        this.data = data;
+        this.date = data;
     }
 
     
