@@ -39,7 +39,7 @@ const DataTable = () => {
                     <tbody>
                     {page.content?.map(item => (
                         <tr key={item.id}>
-                            <td>{formatLocalDate(item.date, "dd/MM/yyyy")}</td>
+                            <td>{formatLocalDate(item.data, "dd/MM/yyyy")}</td>
                             <td>{item.seller.name}</td>
                             <td>{item.visited}</td>
                             <td>{item.deals}</td>
