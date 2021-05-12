@@ -7,7 +7,7 @@ import Pagination from "../Pagination";
 
 const DataTable = () => {
 
-    const [activePage,setActivePage] = useState(0);
+    const [activePage, setActivePage] = useState(0);
 
     const [page, setPage] = useState<SalePage>({
         first: true,
@@ -26,7 +26,7 @@ const DataTable = () => {
     }, [activePage]);
 
 
-    const changePage = (index:number) =>{
+    const changePage = (index: number) => {
 
         setActivePage(index);
 
